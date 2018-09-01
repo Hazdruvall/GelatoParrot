@@ -1,0 +1,63 @@
+package simpleList;
+
+public class Node<T> {
+	private T Value;
+	private Node<T> Next;
+	private Node<T> Previous;
+	
+	public Node() {
+		Next = null;
+		Previous = null;
+	}
+	
+	public Node (T pValue){
+		this();
+		setValue(pValue);
+	}
+	
+	public T getValue() {
+		return Value;
+	}
+	public void setValue(T pValue) {
+		Value = pValue;
+	}
+	
+	public Node<T> getNext() {
+		return Next;
+	}
+	public void setNext(Node<T> pNext) {
+		Next = pNext;
+	}
+	
+	public Node<T> getPrevious() {
+		return Previous;
+	}
+	public void setPrevious(Node<T> pPrevious) {
+		Previous = pPrevious;
+	}
+	
+	public String toString() {
+		String v;
+		String n;
+		String p;
+		if(Value != null) {
+			v =	Value.toString();
+		} else {
+			v = "null";
+		}
+		
+		if(Previous != null) {
+			p =  Previous.toString();
+		} else {
+			p = "null";
+		}
+		
+		if(Next != null) {
+			n = Next.toString();
+		} else {
+			n = "null";
+		}
+		return v + " " + p + " " + n;
+	}
+	
+}
