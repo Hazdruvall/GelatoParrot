@@ -1,0 +1,51 @@
+package gameElements;
+
+public class Ingredient {
+	private String Name;
+	private String Color;
+	
+	public Ingredient() {
+		setColor(null);
+	}
+	
+	public Ingredient(String pName) {
+		this();
+		setName(pName);
+	}
+
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String pName) {
+		Name = pName;
+	}
+
+	public String getColor() {
+		return Color;
+	}
+
+	public void setColor(String pColor) {
+		Color = pColor;
+	}
+	
+	public String toString() {
+		String n;
+		String c;
+		
+		if(Name != null) {
+			n = Name;
+		} else {
+			n = "null";
+		}
+		
+		if(Color != null) {
+			c = Color;
+		} else {
+			c = "null";
+		}
+		
+		return n + " " + c;
+	}
+	
+}
