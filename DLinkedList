@@ -1,0 +1,60 @@
+package simpleList;
+import commonInterfaces.*;
+
+public class DLinkedList<T> implements IToString{
+	private Node<T> First;
+	private Node<T> Last;
+	private int Length;
+	
+	public DLinkedList() {
+		First = null;
+		Last = null;
+		Length = 0;
+	}
+	
+	public void add (T pValue) {
+		Node<T> nod = new Node<T>(pValue);
+		
+		if (First != null) {
+			Last.setNext(nod);
+			nod.setPrevious(Last);
+		} else {
+			First = nod;
+		}
+		
+		Last = nod;
+		Length++;
+	}
+	
+	public void remove (T pValue) {
+		Node<T> pointer = First;
+		boolean found = false;
+		
+		while(pointer.getNext() != null) searchScope: {
+			if(pointer == pValue) {
+				found = true;
+				break searchScope;
+			}
+			pointer = pointer.getNext();
+		}
+		
+		if (found) {
+			if(pointer != First & pointer != Last) {
+				pointer.getPrevious().setNext(pointer.getNext());
+				pointer.getNext().setPrevious(pointer.getPrevious());
+				pointer.setNext(null);
+				pointer.setPrevious(null);
+			} else if(pointer == First) {
+				First = pointer.getNext();
+				pointer.getNext().setPrevious(null);
+				pointer.setNext(null);
+			} else {
+				Last = pointer.getPrevious();
+				pointer.getPrevious().setNext(null);
+				pointer.setPrevious(null);
+			}
+		}
+		
+	}
+	
+}
