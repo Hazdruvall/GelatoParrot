@@ -1,0 +1,16 @@
+package unitTests;
+import gameElements.Ingredient;
+import simpleList.Node; 
+
+public class NodeUnitTest {
+
+	public static void main(String[] args) {
+		Ingredient miIngrediente = new Ingredient("Frambuesa");
+		miIngrediente.setColor("Rojo");
+		Node<Ingredient> miNodo = new Node<Ingredient>(miIngrediente);
+		
+		System.out.println(miNodo.toString());
+		
+	}
+
+}
